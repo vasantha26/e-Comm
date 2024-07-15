@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/productImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="John Doe"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="john.doe@example.com"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/edit_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Edit Profile" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_profile_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Logout" />
+
+</RelativeLayout>

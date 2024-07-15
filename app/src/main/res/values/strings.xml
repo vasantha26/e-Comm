@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">ecommerceapps</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="japanese_cherry_blossom">Japanese Cherry Blossom</string>
+    <string name="_15_00">$ 15.00</string>
+    <string name="price">Price</string>
+    <string name="_250_ml">250 ml</string>
+    <string name="size">Size</string>
+    <string name="let_s_find_your_favourate_product">Let\'s find your favourate product</string>
+    <string name="hello_emma">Hello, Emma!</string>
+    <string name="search">Search</string>
+    <string name="scan_icon">Scan Icon</string>
+    <string name="microphone_icon">Microphone Icon</string>
+    <string name="location_icon">Location Icon</string>
+    <string name="deliver_to_vasantha_chennai_600059">Deliver to Vasantha - Chennai 600059</string>
+    <string name="title">Title</string>
+    <string name="register">Register</string>
+    <string name="shopeasy">shopEasy</string>
+    <string name="register_">Register</string>
+    <string name="login">Login</string>
+    <string name="shopeasy_">shopEasy</string>
+    <string name="home">Home</string>
+    <string name="you">You</string>
+    <string name="more">More</string>
+    <string name="cart">Cart</string>
+    <string name="menu">Menu</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="dont_have_an_account_sign_up_now">dont have an account? sign up now</string>
+    <string name="games">Games</string>
+    <string name="see_all">See All</string>
+    <string name="latest_projects">Latest Projects</string>
+    <string name="latest_projects_">Latest Projects</string>
+    <string name="see_all_">See All</string>
+    <string name="popular_projects">Popular Projects</string>
+    <string name="hello_there">Hello there,</string>
+    <string name="loading">Loading..</string>
+    <string name="logout">Logout</string>
+    <string name="go_back">Go Back</string>
+    <string name="seller_appmelodies">Seller: Appmelodies</string>
+    <string name="quiz_app_with_multiple_questions">Quiz App with multiple questions</string>
+    <string name="features">Features:</string>
+    <string name="modern_ui_ux_admin_pannel_navigation_list_unlimited_products_easy_to_use_dashboard_and_ore">Modern ui/ux, Admin pannel, Navigation, List unlimited products, easy to use dashboard and ore</string>
+    <string name="add_to_chart">Add to Cart</string>
+    <string name="description">Description</string>
+    <string name="search_for_product">Search here… <font size="11" /></string>
+
+</resources>

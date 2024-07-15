@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "850818931340",
+    "project_id": "still-sight-418807",
+    "storage_bucket": "still-sight-418807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850818931340:android:e6833f9938e9fd15caf9a9",
+        "android_client_info": {
+          "package_name": "com.example.ecommerceapps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDMhMdfqzDNNV6Izy2rIiFFFDXRfRPtrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

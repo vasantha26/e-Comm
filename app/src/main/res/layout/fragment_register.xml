@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_background"
+    tools:context=".loginfragment.LoginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:gravity="center"
+            android:text="@string/shopeasy_"
+            android:textColor="#000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/username"
+            app:boxBackgroundColor="#F8E9FD">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/password"
+            app:boxBackgroundColor="#F8E9FD">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/confirm_password"
+            app:boxBackgroundColor="#F8E9FD">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_cnf_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_register_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:gravity="center"
+                android:text="@string/register" />
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lgbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/already_have_an_account"
+            android:textColor="#9989FD"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</ScrollView>

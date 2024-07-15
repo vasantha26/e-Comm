@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@color/white"
+    app:cardCornerRadius="15dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2ADADADA"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/productImageView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/productNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:text="hukama modles"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/productInfoTextView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:text="hukama modles"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <RatingBar
+                    android:id="@+id/ratingBar1"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressBackgroundTint="@android:color/darker_gray"
+                    android:progressTint="@android:color/holo_orange_light"
+                    android:stepSize="0.1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/activites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="5 activities"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="visible"></TextView>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+
+                <TextView
+                    android:id="@+id/productPriceTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:text=""
+                    android:textColor="#FB8C00"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/buy_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/baseline_add_shopping_cart_24">
+
+                </ImageView>
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="match_parent"
+                android:layout_height="25sp"
+                android:background="#FF0009"
+                android:onClick="onDeleteButtonClick"
+                android:text=""
+                android:textColor="#ffffff"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
