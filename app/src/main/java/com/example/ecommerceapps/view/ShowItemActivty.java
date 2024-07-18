@@ -2,9 +2,11 @@ package com.example.ecommerceapps.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.ecommerceapps.adpater.PriceAdapter;
@@ -28,6 +30,7 @@ public class ShowItemActivty extends AppCompatActivity implements ShowAllProduct
     List<Product> productList;
 
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,18 @@ public class ShowItemActivty extends AppCompatActivity implements ShowAllProduct
 
         getPriceItems(productList);
 
+        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return false;
+            }
+        });
 
 
     }
@@ -63,5 +78,20 @@ public class ShowItemActivty extends AppCompatActivity implements ShowAllProduct
         intent.putExtras(bundle);
         startActivity(intent);
 
+    }
+
+    private void filter(String text) {
+        ArrayList<Product> filteredlist = new ArrayList<Product>();
+
+        for (Product item : productList) {
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                filteredlist.add(item);
+            }
+        }
+        if (filteredlist.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "No Data Found..", Toast.LENGTH_SHORT).show();
+        } else {
+            adapter.filterList(filteredlist);
+        }
     }
 }

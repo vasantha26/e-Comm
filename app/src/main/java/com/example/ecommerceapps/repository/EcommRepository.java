@@ -15,11 +15,12 @@ import com.example.ecommerceapps.model.Product;
 import java.util.List;
 
 public class EcommRepository {
-    private final EcommesDao eCommDao;
-    private final AccountDao accountDao;
-    private LiveData<List<Product>> allFlowers;
-    private LiveData<List<Product>> allFlowersItems;
-    private LiveData<List<Account>> accountItems;
+
+    EcommesDao eCommDao;
+    AccountDao accountDao;
+    LiveData<List<Product>> allFlowers;
+    LiveData<List<Product>> allFlowersItems;
+    LiveData<List<Account>> accountItems;
 
     public EcommRepository(Application application) {
         ECommerceDatabase database = ECommerceDatabase.getInstance(application);
@@ -34,7 +35,6 @@ public class EcommRepository {
     public void insert(Product products) {
         new InsertFlowerAsyncTask(eCommDao).execute(products);
     }
-
 
     public LiveData<List<Product>> getAllProducts() {
         return allFlowers;
@@ -56,9 +56,16 @@ public class EcommRepository {
         new DeleteProductAsyncTask(accountDao).execute(account);
     }
 
+    public void updateFavorite(int id, boolean product) {
+        updateIsFav(id,product);
+    }
+
+    public void updateCart(int id, boolean product) {
+        updateCarts(id,product);
+    }
 
     private static class InsertFlowerAsyncTask extends AsyncTask<Product, Void, Void> {
-        private EcommesDao eCommDao;
+        EcommesDao eCommDao;
 
         private InsertFlowerAsyncTask(EcommesDao eCommDao) {
             this.eCommDao = eCommDao;
@@ -72,7 +79,7 @@ public class EcommRepository {
     }
 
     private static class InsertAccountAsyncTask extends AsyncTask<Account, Void, Void> {
-        private AccountDao accountDao;
+        AccountDao accountDao;
 
         private InsertAccountAsyncTask(AccountDao accountDao) {
             this.accountDao = accountDao;
@@ -86,7 +93,7 @@ public class EcommRepository {
     }
 
     private static class DeleteProductAsyncTask extends AsyncTask<Account, Void, Void> {
-        private AccountDao accountDao;
+        AccountDao accountDao;
 
         private DeleteProductAsyncTask(AccountDao productDao) {
             this.accountDao = productDao;
@@ -99,6 +106,12 @@ public class EcommRepository {
         }
     }
 
+    public void updateIsFav(int id, boolean isFav) {
+        new Thread(() -> eCommDao.updateIsFav(id, isFav)).start();
+    }
 
+    public void updateCarts(int id, boolean isFav) {
+        new Thread(() -> eCommDao.updateCart(id, isFav)).start();
+    }
 
 }

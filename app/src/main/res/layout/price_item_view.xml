@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="1dp"
+    android:background="@color/white"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="6dp"
     android:fillViewport="false"
@@ -45,33 +46,25 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true" />
 
-        <CheckBox
+        <ImageView
             android:id="@+id/checkBoxFavorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="320dp"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="1dp"
-            android:background="@drawable/shape_ring"
-            android:button="@drawable/selector_favorites"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            app:useMaterialThemeColors="false" />
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/ic_favorite_outslined" />
 
-        <CheckBox
+        <ImageView
             android:id="@+id/checkBoxCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_below="@id/checkBoxFavorite"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:background="@drawable/shape_ring"
-            android:button="@drawable/selector_cart"
-            android:scaleX="1"
-            android:scaleY="1"
-            app:useMaterialThemeColors="false" />
+            android:layout_marginStart="320dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/selector_cart" />
 
         <TextView
             android:id="@+id/textViewProductName"
@@ -97,10 +90,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewProductName"
             android:paddingStart="1dp"
-            android:layout_margin="12dp"
+            android:layout_marginStart="12dp"
             android:paddingEnd="1dp"
             android:text="@string/description"
-            android:textStyle="bold" />
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/textViewProductDescription"
@@ -110,19 +106,22 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
             android:drawablePadding="2dp"
+            android:layout_marginStart="12dp"
             android:fontFamily="sans-serif"
             android:paddingStart="1dp"
             android:paddingEnd="1dp"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:textColor="@color/black"/>
 
 
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_below="@id/textViewProductDescription"
             android:layout_alignParentStart="true"
             android:layout_marginTop="6dp"
+            android:layout_marginStart="12dp"
             android:clickable="false"
             android:contextClickable="false"
             android:insetTop="0dp"
@@ -137,20 +136,20 @@
 
         </RatingBar>
 
+
         <TextView
             android:id="@+id/textViewProductFeatures"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_below="@id/ratingBar"
-
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:layout_marginStart="12dp"
             android:drawablePadding="2dp"
             android:fontFamily="sans-serif"
             android:paddingStart="1dp"
             android:paddingEnd="1dp"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textViewProductPrice"
@@ -158,25 +157,49 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewProductFeatures"
             android:layout_marginTop="6dp"
-
+            android:layout_marginStart="12dp"
             android:layout_marginBottom="6dp"
             android:drawablePadding="2dp"
             android:fontFamily="sans-serif"
             android:paddingStart="1dp"
             android:paddingEnd="1dp"
-            android:textAlignment="center"
+            android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonAddToShopping"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewProductPrice"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ripple"
+            android:backgroundTint="#FFC107"
+            android:fontFamily="sans-serif"
+            android:paddingLeft="30dp"
+            android:paddingTop="-55dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="-30dp"
+            android:text="@string/add_to_chart"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonBuyShopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonAddToShopping"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/ripple"
             android:backgroundTint="@color/dark_orange"
             android:fontFamily="sans-serif"
@@ -184,7 +207,7 @@
             android:paddingTop="-55dp"
             android:paddingRight="30dp"
             android:paddingBottom="-30dp"
-            android:text="@string/add_to_chart"
+            android:text="@string/buy_now"
             android:textAllCaps="false"
             android:textColor="@color/white" />
     </RelativeLayout>

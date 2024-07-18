@@ -1,6 +1,7 @@
 package com.example.ecommerceapps.model;
 
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -33,6 +34,10 @@ public class Product implements Parcelable {
     @SerializedName("rating")
     @TypeConverters(Converters.class)
     private Rating rating;
+    @SerializedName("isFavorite")
+    private Boolean isFavorite  = false;
+    @SerializedName("isCart")
+    private Boolean isCart  = false;
 
     public Product() {
 
@@ -94,6 +99,22 @@ public class Product implements Parcelable {
         this.rating = rating;
     }
 
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
+    }
+
+    public Boolean getCart() {
+        return isCart;
+    }
+
+    public void setCart(Boolean cart) {
+        isCart = cart;
+    }
+
     protected Product(Parcel in) {
         id = in.readInt();
         title = in.readString();
@@ -102,6 +123,12 @@ public class Product implements Parcelable {
         category = in.readString();
         image = in.readString();
         rating = in.readParcelable(Rating.class.getClassLoader());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            isFavorite = in.readBoolean();
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            isCart = in.readBoolean();
+        }
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -130,6 +157,12 @@ public class Product implements Parcelable {
         dest.writeString(category);
         dest.writeString(image);
         dest.writeParcelable(rating, flags);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            dest.writeBoolean(isFavorite);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            dest.writeBoolean(isCart);
+        }
     }
 }
 

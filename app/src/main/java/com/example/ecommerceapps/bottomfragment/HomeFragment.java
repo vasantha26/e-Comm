@@ -16,19 +16,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecommerceapps.NetworkConnectivity;
 import com.example.ecommerceapps.model.Account;
 import com.example.ecommerceapps.view.ShowItemActivty;
 import com.example.ecommerceapps.viewmodel.ViewModal;
 import com.example.ecommerceapps.adpater.PopularAdapter;
 import com.example.ecommerceapps.databinding.ActivityHomeBinding;
 import com.example.ecommerceapps.interfaces.FragmentBottomNavigation;
-import com.example.ecommerceapps.interfaces.FragmentNavigation;
 import com.example.ecommerceapps.model.Product;
 import com.example.ecommerceapps.adpater.ProductAdapter;
 import com.example.ecommerceapps.adpater.ProductCategoryAdapter;
 import com.example.ecommerceapps.retrofit.ApiService;
 import com.example.ecommerceapps.retrofit.RetrofitClient;
-import com.example.ecommerceapps.loginfragment.LoginFragment;
 import com.example.ecommerceapps.view.PriceActivty;
 import com.google.gson.Gson;
 
@@ -100,13 +99,24 @@ public class HomeFragment extends Fragment implements ProductAdapter.itemClickLi
 //            }
 //        });
 
-        binding.seeAll.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ShowItemActivty.class);
-            Bundle bundle = new Bundle();
+        Intent intent = new Intent(getActivity(), ShowItemActivty.class);
+        Bundle bundle = new Bundle();
+
+        binding.searchLayout.setOnClickListener(v -> {
             bundle.putSerializable("productList", (ArrayList<Product>) product);
             intent.putExtras(bundle);
             startActivity(intent);
         });
+
+
+
+
+        binding.seeAll.setOnClickListener(v -> {
+            bundle.putSerializable("productList", (ArrayList<Product>) product);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
+
 
 
         return binding.getRoot();
@@ -117,27 +127,32 @@ public class HomeFragment extends Fragment implements ProductAdapter.itemClickLi
 
     private void getProducts() {
 
-        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
-        Call<List<Product>> call = apiService.getProducts();
+//        if (!NetworkConnectivity.checkConnection(getContext())) {
 
-        call.enqueue(new Callback<List<Product>>() {
-            @Override
-            public void onResponse(@NonNull Call<List<Product>> call, @NonNull Response<List<Product>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    for (Product prodcut : response.body()) {
-                        viewModal.insert(prodcut);
+            ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+            Call<List<Product>> call = apiService.getProducts();
+
+            call.enqueue(new Callback<List<Product>>() {
+                @Override
+                public void onResponse(@NonNull Call<List<Product>> call, @NonNull Response<List<Product>> response) {
+                    Log.d("getProducts >>> ", "onResponse >>> " + response.body());
+
+                    if (response.isSuccessful() && response.body() != null) {
+                        for (Product prodcut : response.body()) {
+                            viewModal.insert(prodcut);
+                        }
+                    } else {
+                        Log.d("getProducts >>> ", "Failed to fetch data");
                     }
-                } else {
-                    Log.e("getProducts", "Failed to fetch data");
                 }
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<List<Product>> call, @NonNull Throwable t) {
-                Log.e("getProducts", "Error occurred while fetching data", t.getCause());
-            }
-        });
+                @Override
+                public void onFailure(@NonNull Call<List<Product>> call, @NonNull Throwable t) {
+                    Log.d("getProducts >>> ", "Error occurred while fetching data"+  t.getMessage());
+                }
+            });
 
+//        }
     }
 
     private void fetchCategories() {

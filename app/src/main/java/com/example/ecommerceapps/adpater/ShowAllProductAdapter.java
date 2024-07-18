@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.ecommerceapps.R;
 import com.example.ecommerceapps.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShowAllProductAdapter extends RecyclerView.Adapter<ShowAllProductAdapter.ProductViewHolder> {
@@ -65,6 +66,11 @@ public class ShowAllProductAdapter extends RecyclerView.Adapter<ShowAllProductAd
     @Override
     public int getItemCount() {
         return productList.size();
+    }
+
+    public void filterList(ArrayList<Product> filteredlist) {
+        productList = filteredlist;
+        notifyDataSetChanged();
     }
 
     public interface itemClickListener {

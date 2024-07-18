@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -64,6 +65,9 @@ dependencies {
     annotationProcessor(libs.room.compiler)
     implementation(libs.lifecycle.extensions)
     annotationProcessor(libs.lifecycle.compiler)
+
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
 
 
 }
