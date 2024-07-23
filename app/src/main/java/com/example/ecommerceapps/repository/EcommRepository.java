@@ -20,6 +20,7 @@ public class EcommRepository {
     AccountDao accountDao;
     LiveData<List<Product>> allFlowers;
     LiveData<List<Product>> allFlowersItems;
+    LiveData<List<Product>> alllCart;
     LiveData<List<Account>> accountItems;
 
     public EcommRepository(Application application) {
@@ -29,6 +30,7 @@ public class EcommRepository {
         accountDao = accountDatabase.accountDao();
         allFlowers = eCommDao.getAllProducts();
         allFlowersItems = eCommDao.getAllProductsItem();
+        alllCart = eCommDao.getAllCart();
         accountItems = accountDao.getAllAccount();
     }
 
@@ -42,6 +44,10 @@ public class EcommRepository {
 
     public LiveData<List<Product>> getAllFlowersItems() {
         return allFlowersItems;
+    }
+
+    public LiveData<List<Product>> getAllCart() {
+        return alllCart;
     }
 
     public LiveData<List<Account>> getAllAccount() {

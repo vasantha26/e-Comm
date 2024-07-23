@@ -12,7 +12,7 @@ import com.example.ecommerceapps.model.Converters;
 import com.example.ecommerceapps.model.Product;
 
 // adding annotation for our database entities and db version.
-@Database(entities = {Product.class}, version = 3)
+@Database(entities = {Product.class}, version = 4)
 @TypeConverters(Converters.class)
 public abstract class ECommerceDatabase extends RoomDatabase {
 

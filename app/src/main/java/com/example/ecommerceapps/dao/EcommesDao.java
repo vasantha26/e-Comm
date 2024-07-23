@@ -28,4 +28,7 @@ public interface EcommesDao {
     @Query("UPDATE ecomm_table SET isCart = :isCart WHERE id = :id")
     void updateCart(int id, boolean isCart);
 
+    @Query("SELECT * FROM ecomm_table WHERE isCart = 1")
+    LiveData<List<Product>> getAllCart();
+
 }

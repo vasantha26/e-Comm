@@ -9,12 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.ecommerceapps.adpater.PriceAdapter;
-import com.example.ecommerceapps.adpater.ProductAdapter;
 import com.example.ecommerceapps.adpater.ShowAllProductAdapter;
-import com.example.ecommerceapps.databinding.PriceItemViewBinding;
 import com.example.ecommerceapps.databinding.ShowItemActivityBinding;
-import com.example.ecommerceapps.databinding.ShowProductViewBinding;
 import com.example.ecommerceapps.interfaces.FragmentBottomNavigation;
 import com.example.ecommerceapps.model.Product;
 import com.google.gson.Gson;

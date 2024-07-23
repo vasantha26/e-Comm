@@ -15,6 +15,7 @@ public class ViewModal extends AndroidViewModel {
     EcommRepository repository;
     LiveData<List<Product>> allFlowers;
     LiveData<List<Product>> allFlowersItems;
+    LiveData<List<Product>> allCart;
     LiveData<List<Account>> accountItems;
 
     public ViewModal(@NonNull Application application) {
@@ -22,6 +23,7 @@ public class ViewModal extends AndroidViewModel {
         repository = new EcommRepository(application);
         allFlowers = repository.getAllProducts();
         allFlowersItems = repository.getAllFlowersItems();
+        allCart = repository.getAllCart();
         accountItems = repository.getAllAccount();
     }
 
@@ -39,6 +41,10 @@ public class ViewModal extends AndroidViewModel {
 
     public LiveData<List<Product>> getAllFlowersItems() {
         return allFlowersItems;
+    }
+
+    public LiveData<List<Product>> getAllCart() {
+        return allCart;
     }
 
     public void getAccountDetails(Account account) {

@@ -22,6 +22,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/profile_page"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -150,7 +151,7 @@
                         android:background="@drawable/selector_search_view"
                         android:iconifiedByDefault="false"
                         android:queryHint="@string/search_for_product"
-                        android:searchHintIcon="@drawable/ic_category"  />
+                        android:searchHintIcon="@drawable/ic_category" />
 
                     <ImageView
                         android:id="@+id/filterIcon"
@@ -194,8 +195,7 @@
                         android:layout_height="180dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        tools:listitem="@layout/popular_row_item"
-                        />
+                        tools:listitem="@layout/popular_row_item" />
 
 
                     <androidx.cardview.widget.CardView
@@ -204,8 +204,8 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        app:cardCornerRadius="20dp"
                         android:visibility="gone"
+                        app:cardCornerRadius="20dp"
                         app:cardElevation="10dp">
 
 
@@ -240,15 +240,13 @@
                         android:orientation="vertical">
 
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/cat_recycler"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                tools:listitem="@layout/category_row_item" />
-
-
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/cat_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:listitem="@layout/category_row_item" />
 
 
                     </LinearLayout>
@@ -302,8 +300,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="50dp"
-                        android:visibility="gone"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <RelativeLayout
                             android:layout_width="match_parent"

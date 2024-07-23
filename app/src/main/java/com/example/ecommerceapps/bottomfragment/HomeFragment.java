@@ -118,6 +118,11 @@ public class HomeFragment extends Fragment implements ProductAdapter.itemClickLi
         });
 
 
+        binding.profilePage.setOnClickListener(v -> {
+            Intent intent1 = new Intent(getActivity(), ProfileFragment.class);
+            startActivity(intent1);
+        });
+
 
         return binding.getRoot();
 

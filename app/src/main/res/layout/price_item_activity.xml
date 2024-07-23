@@ -107,7 +107,7 @@
             android:layout_marginBottom="6dp"
             android:drawablePadding="2dp"
             android:layout_marginStart="12dp"
-            android:fontFamily="sans-serif"
+            app:fontFamily="sans-serif"
             android:paddingStart="1dp"
             android:paddingEnd="1dp"
             android:textSize="12sp"

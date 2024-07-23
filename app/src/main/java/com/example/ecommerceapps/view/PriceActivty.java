@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.ecommerceapps.R;
 import com.example.ecommerceapps.adpater.PriceAdapter;
-import com.example.ecommerceapps.databinding.PriceItemViewBinding;
+import com.example.ecommerceapps.databinding.PriceItemActivityBinding;
 import com.example.ecommerceapps.interfaces.FragmentBottomNavigation;
 import com.example.ecommerceapps.model.Product;
 import com.example.ecommerceapps.viewmodel.ViewModal;
@@ -20,7 +20,7 @@ import java.util.List;
 public class PriceActivty extends AppCompatActivity {
 
     PriceAdapter adapter;
-    PriceItemViewBinding binding;
+    PriceItemActivityBinding binding;
     FragmentBottomNavigation communicator;
     List<Product> productList;
     Product product;
@@ -32,7 +32,7 @@ public class PriceActivty extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = PriceItemViewBinding.inflate(getLayoutInflater());
+        binding = PriceItemActivityBinding.inflate(getLayoutInflater());
         setContentView( binding.getRoot());
 
         viewModal = new ViewModelProvider(this).get(ViewModal.class);
@@ -78,25 +78,31 @@ public class PriceActivty extends AppCompatActivity {
             }
         });
 
-        binding.buttonAddToShopping.setOnClickListener(v -> {
-            viewModal.updateCart(product.getId() ,true);
-        });
+        binding.buttonAddToShopping.setOnClickListener(v -> viewModal.updateCart(product.getId() ,true));
 
 
 
         binding.checkBoxCart.setOnClickListener(v -> {
-            Uri imgBitmapUri = Uri.parse(product.getImage());
-
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, imgBitmapUri);
-            shareIntent.setType("image/jpg");
-            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            shareIntent.putExtra(Intent.EXTRA_TEXT, product.getTitle());
-            startActivity(Intent.createChooser(shareIntent, "Share with"));
+//            Uri imgBitmapUri = Uri.parse(product.getImage());
+//
+//            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//            shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            shareIntent.putExtra(Intent.EXTRA_STREAM, imgBitmapUri);
+//            shareIntent.setType("image/jpg");
+//            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//            shareIntent.putExtra(Intent.EXTRA_TEXT, product.getTitle());
+//            startActivity(Intent.createChooser(shareIntent, "Share with"));
         });
 
         binding.backButton.setOnClickListener(v -> finish());
+
+        binding.buttonBuyShopping.setOnClickListener(v -> {
+            Intent intent = new Intent(this ,ShoppingItemActivty.class);
+            intent.putExtra("price" , String.valueOf(product.getPrice()));
+            startActivity(intent);
+
+
+        });
 
         getPriceItems(itemList);
 

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Ecommerceapps"
         tools:targetApi="31">
         <activity
+            android:name=".view.ShoppingItemActivty"
+            android:exported="false"/>
+        <activity
             android:name=".view.ShowItemActivty"
             android:exported="false"/>
         <activity
